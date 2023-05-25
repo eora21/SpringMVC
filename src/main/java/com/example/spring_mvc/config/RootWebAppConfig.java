@@ -18,7 +18,7 @@ import java.util.Objects;
 @Configuration
 @RequiredArgsConstructor
 @PropertySource("classpath:db.properties")
-@ComponentScan(basePackages = "com.example.spring_mvc.domain", excludeFilters = @ComponentScan.Filter(Controller.class))
+@ComponentScan(basePackages = "com.example.spring_mvc", excludeFilters = @ComponentScan.Filter(Controller.class))
 public class RootWebAppConfig {
 
     private final Environment env;
