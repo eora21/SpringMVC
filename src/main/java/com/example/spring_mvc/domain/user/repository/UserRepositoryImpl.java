@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
+import static com.example.spring_mvc.domain.role.entity.QRole.role;
 import static com.example.spring_mvc.domain.user.entity.QUser.user;
 
 @RequiredArgsConstructor
@@ -26,11 +27,12 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
     private List<UserDto> getContent(Pageable pageable) {
         return queryFactory
                 .select(new QUserDto(
-                        user.loginId,
+                        user.id,
                         user.name,
-                        user.role.roleName)
+                        role.roleName)
                 )
                 .from(user)
+                .innerJoin(user.role, role)
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .fetch();
