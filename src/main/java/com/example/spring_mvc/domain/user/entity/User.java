@@ -1,4 +1,4 @@
-package com.example.spring_mvc.domain.users.entity;
+package com.example.spring_mvc.domain.user.entity;
 
 import com.example.spring_mvc.domain.role.entity.Role;
 import lombok.AccessLevel;

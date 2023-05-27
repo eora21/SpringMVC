@@ -1,6 +1,6 @@
 package com.example.spring_mvc.domain.board.entity;
 
-import com.example.spring_mvc.domain.users.entity.User;
+import com.example.spring_mvc.domain.user.entity.User;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

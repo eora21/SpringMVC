@@ -1,5 +1,6 @@
 package com.example.spring_mvc.config;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
@@ -8,15 +9,18 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.stereotype.Controller;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 import java.util.Objects;
 
 @Configuration
 @RequiredArgsConstructor
+@EnableSpringDataWebSupport
 @PropertySource("classpath:db.properties")
 @ComponentScan(basePackages = "com.example.spring_mvc", excludeFilters = @ComponentScan.Filter(Controller.class))
 public class RootWebAppConfig {
@@ -54,5 +58,10 @@ public class RootWebAppConfig {
         dataSource.setTestWhileIdle(true);
 
         return dataSource;
+    }
+
+    @Bean
+    public JPAQueryFactory jpaQueryFactory(EntityManager em) {
+        return new JPAQueryFactory(em);
     }
 }
