@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<h1>사용자 목록</h1>
+
+<table>
+    <tr>
+        <th>이름</th>
+        <th>권한</th>
+    </tr>
+    <tr th:each="user : ${userDtoPage.content}">
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.roleName}"></td>
+    </tr>
+</table>
+<div th:if="${#bools.isFalse(userDtoPage.first)}">
+    <a th:href="@{/user(size=${userDtoPage.size}, page=${userDtoPage.number - 1})}">이전 페이지</a>
+</div>
+<div th:if="${#bools.isFalse(userDtoPage.last)}">
+    <a th:href="@{/user(size=${userDtoPage.size}, page=${userDtoPage.number + 1})}">다음 페이지</a>
+</div>
+</body>
+</html>
