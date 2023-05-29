@@ -13,16 +13,16 @@
         <th>이름</th>
         <th>권한</th>
     </tr>
-    <tr th:each="user : ${userDtoPage.content}">
+    <tr th:each="user : ${usersPage.content}">
         <td th:text="${user.name}"></td>
         <td th:text="${user.roleName}"></td>
     </tr>
 </table>
-<div th:if="${#bools.isFalse(userDtoPage.first)}">
-    <a th:href="@{/user(size=${userDtoPage.size}, page=${userDtoPage.number - 1})}">이전 페이지</a>
+<div th:if="${#bools.isFalse(usersPage.first)}">
+    <a th:href="@{/user(size=${usersPage.size}, page=${usersPage.number - 1})}">이전 페이지</a>
 </div>
-<div th:if="${#bools.isFalse(userDtoPage.last)}">
-    <a th:href="@{/user(size=${userDtoPage.size}, page=${userDtoPage.number + 1})}">다음 페이지</a>
+<div th:if="${#bools.isFalse(usersPage.last)}">
+    <a th:href="@{/user(size=${usersPage.size}, page=${usersPage.number + 1})}">다음 페이지</a>
 </div>
 </body>
 </html>

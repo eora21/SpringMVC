@@ -18,9 +18,9 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public String getUserDtoPage(Model model, Pageable pageable) {
-        Page<UsersResponseDto> userDtoPage = userService.getUserDtoPage(pageable);
-        model.addAttribute("userDtoPage", userDtoPage);
+    public String getUsersPage(Model model, Pageable pageable) {
+        Page<UsersResponseDto> usersPage = userService.getUsersPage(pageable);
+        model.addAttribute("usersPage", usersPage);
         return "users";
     }
 }

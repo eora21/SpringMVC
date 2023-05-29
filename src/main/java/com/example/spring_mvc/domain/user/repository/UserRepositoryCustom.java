@@ -5,5 +5,5 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface UserRepositoryCustom {
-    Page<UsersResponseDto> getUserDtoPage(Pageable pageable);
+    Page<UsersResponseDto> getUsersPage(Pageable pageable);
 }

@@ -14,7 +14,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     @Transactional(readOnly = true)
-    public Page<UsersResponseDto> getUserDtoPage(Pageable pageable) {
-        return userRepository.getUserDtoPage(pageable);
+    public Page<UsersResponseDto> getUsersPage(Pageable pageable) {
+        return userRepository.getUsersPage(pageable);
     }
 }
