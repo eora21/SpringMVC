@@ -18,7 +18,7 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public Page<UsersResponseDto> getUserDtoPage(Pageable pageable) {
+    public Page<UsersResponseDto> getUsersPage(Pageable pageable) {
         List<UsersResponseDto> content = getContent(pageable);
         long total = getTotal();
         return new PageImpl<>(content, pageable, total);
