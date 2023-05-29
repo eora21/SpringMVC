@@ -1,6 +1,6 @@
 package com.example.spring_mvc.domain.user.controller;
 
-import com.example.spring_mvc.domain.user.model.dto.UserDto;
+import com.example.spring_mvc.domain.user.dto.response.UsersResponseDto;
 import com.example.spring_mvc.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -16,7 +16,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public Page<UserDto> getUserDtoPage(Pageable pageable) {
+    public Page<UsersResponseDto> getUserDtoPage(Pageable pageable) {
         return userService.getUserDtoPage(pageable);
     }
 }

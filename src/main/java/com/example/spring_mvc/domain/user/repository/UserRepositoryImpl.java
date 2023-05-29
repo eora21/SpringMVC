@@ -1,7 +1,7 @@
 package com.example.spring_mvc.domain.user.repository;
 
-import com.example.spring_mvc.domain.user.model.dto.QUserDto;
-import com.example.spring_mvc.domain.user.model.dto.UserDto;
+import com.example.spring_mvc.domain.user.dto.response.QUsersResponseDto;
+import com.example.spring_mvc.domain.user.dto.response.UsersResponseDto;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -18,15 +18,15 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public Page<UserDto> getUserDtoPage(Pageable pageable) {
-        List<UserDto> content = getContent(pageable);
+    public Page<UsersResponseDto> getUserDtoPage(Pageable pageable) {
+        List<UsersResponseDto> content = getContent(pageable);
         long total = getTotal();
         return new PageImpl<>(content, pageable, total);
     }
 
-    private List<UserDto> getContent(Pageable pageable) {
+    private List<UsersResponseDto> getContent(Pageable pageable) {
         return queryFactory
-                .select(new QUserDto(
+                .select(new QUsersResponseDto(
                         user.id,
                         user.name,
                         role.roleName)
