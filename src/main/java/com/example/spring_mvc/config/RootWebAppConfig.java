@@ -13,6 +13,8 @@ import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import javax.persistence.EntityManager;
 import javax.sql.DataSource;
@@ -24,6 +26,9 @@ import java.util.Objects;
 @PropertySource("classpath:db.properties")
 @ComponentScan(basePackages = "com.example.spring_mvc", excludeFilters = @ComponentScan.Filter(Controller.class))
 public class RootWebAppConfig {
+    private static final long BYTE = 1L;
+    private static final long KILOBYTE = BYTE * 1024;
+    private static final long MEGABYTE = KILOBYTE * 1024;
 
     private final Environment env;
 
@@ -63,5 +68,12 @@ public class RootWebAppConfig {
     @Bean
     public JPAQueryFactory jpaQueryFactory(EntityManager em) {
         return new JPAQueryFactory(em);
+    }
+
+    @Bean
+    public MultipartResolver multipartResolver() {
+        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+        resolver.setMaxUploadSize(5 * MEGABYTE);
+        return resolver;
     }
 }

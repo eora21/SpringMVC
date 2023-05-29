@@ -2,6 +2,7 @@ package com.example.spring_mvc.domain.user.entity;
 
 import com.example.spring_mvc.domain.role.entity.Role;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -45,4 +46,13 @@ public class User {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_role_id")
     private Role role;
+
+    @Builder
+    private User(String loginId, String password, String name, String profileImage, Role role) {
+        this.loginId = loginId;
+        this.password = password;
+        this.name = name;
+        this.profileImage = profileImage;
+        this.role = role;
+    }
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserForm</title>
+</head>
+<body>
+<h1>사용자 등록</h1>
+<form action="/user/signup" method="post" enctype="multipart/form-data">
+    <label for="loginId"> 아이디 : </label>
+    <input type="text" id="loginId" name="loginId" required>
+    <br>
+    <label for="password"> 비밀번호 : </label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <label for="name"> 이름 : </label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="profileImage"> 프로필 이미지 : </label>
+    <input type="file" id="profileImage" name="profileImage" accept="image/png, image/jpeg">
+    <br>
+    <span>권한 : </span>
+    <span>
+        <input type="radio" id="ROLE_ADMIN" name="roleName" value="ROLE_ADMIN">
+        <label for="ROLE_ADMIN">admin</label>
+        <input type="radio" id="ROLE_MEMBER" name="roleName" value="ROLE_MEMBER">
+        <label for="ROLE_MEMBER">member</label>
+        <input type="radio" id="ROLE_GUEST" name="roleName" value="ROLE_GUEST" checked>
+        <label for="ROLE_GUEST">guest</label>
+    </span>
+    <br>
+    <input type="submit" value="제출">
+</form>
+</body>
+</html>
