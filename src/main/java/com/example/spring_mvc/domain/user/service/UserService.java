@@ -54,4 +54,13 @@ public class UserService {
         userDetailDto.setProfileImage(profileImage);
         return userDetailDto;
     }
+
+    @Transactional
+    public void roleUpdate(Long userId, Role.RoleName roleName) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(NotFoundException::new);
+        Role role = roleRepository.findByRoleName(roleName)
+                .orElseThrow(NotFoundException::new);
+        user.setRole(role);
+    }
 }

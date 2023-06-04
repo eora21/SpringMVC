@@ -9,6 +9,7 @@
 <h1>사용자 세부정보</h1>
 <p th:text="${user.name}"></p>
 <p th:text="${user.roleName}"></p>
+<a th:href="@{|/user/${user.id}/update/role|}">권한 변경</a>
 <img th:src="${user.profileImage}" alt="profileImage"/>
 </body>
 </html>

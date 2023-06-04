@@ -7,6 +7,7 @@ import lombok.Setter;
 
 @Getter
 public class UserResponseDto {
+    private final Long id;
     private final String name;
 
     @Setter
@@ -15,7 +16,8 @@ public class UserResponseDto {
     private final Role.RoleName roleName;
 
     @QueryProjection
-    public UserResponseDto(String name, String profileImage, Role.RoleName roleName) {
+    public UserResponseDto(Long id, String name, String profileImage, Role.RoleName roleName) {
+        this.id = id;
         this.name = name;
         this.profileImage = profileImage;
         this.roleName = roleName;

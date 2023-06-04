@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>UserForm</title>
+</head>
+<body>
+<h1>사용자 등록</h1>
+<form th:action="@{|/user/${userId}/update/role|}" th:method="PATCH">
+    <span>권한 : </span>
+    <span>
+        <input type="radio" id="ROLE_ADMIN" name="roleName" value="ROLE_ADMIN">
+        <label for="ROLE_ADMIN">admin</label>
+        <input type="radio" id="ROLE_MEMBER" name="roleName" value="ROLE_MEMBER">
+        <label for="ROLE_MEMBER">member</label>
+        <input type="radio" id="ROLE_GUEST" name="roleName" value="ROLE_GUEST" checked>
+        <label for="ROLE_GUEST">guest</label>
+    </span>
+    <br>
+    <input type="submit" value="제출">
+</form>
+</body>
+</html>

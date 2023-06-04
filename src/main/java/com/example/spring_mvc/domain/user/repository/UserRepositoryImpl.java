@@ -31,6 +31,7 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
     public Optional<UserResponseDto> getUserResponseDtoById(long userId) {
         return Optional.ofNullable(queryFactory
                 .select(new QUserResponseDto(
+                        user.id,
                         user.name,
                         user.profileImage,
                         role.roleName)
