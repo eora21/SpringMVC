@@ -61,7 +61,7 @@ public class ServletWebAppConfig implements WebMvcConfigurer, ApplicationContext
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/signup").setViewName("userForm");
+        registry.addViewController("/signup").setViewName("userInsertForm");
     }
 
     @Override
